@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut Éloquence Française - Belajar Bahasa Prancis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#F8F5F0',
+                        midnight: '#0B1D39',
+                        gold: '#C6A664',
+                        pearl: '#D1D1D1',
+                        bordeaux: '#4C1C24'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-ivory">
+    <!-- Floating Headshot Image -->
+    <img src="./fonetik/anah.webp"
+            alt="Headshot"
+            class="hidden md:block absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 object-cover rounded-full border-2 border-gold shadow-lg z-10"
+            style="pointer-events: none;">
+    
+    <div id="app" class="min-h-screen p-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border-2 border-pearl">
+                <h1 class="text-5xl font-bold text-midnight mb-4">🇫🇷 Institut Éloquence Française</h1>
+                <p class="text-xl text-bordeaux">Belajar Bahasa Prancis dari Dasar hingga Mahir</p>
+                <div class="mt-4 p-4 bg-ivory border-l-4 border-gold rounded">
+                    <p class="text-midnight font-semibold">💡 Selamat datang! Pilih modul pembelajaran di bawah untuk memulai perjalanan Anda menguasai bahasa Prancis.</p>
+                </div>
+            </div>
+
+            <!-- Course Modules -->
+            <div class="space-y-6">
+                <!-- Fonetik Module -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-pearl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-midnight text-ivory rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+                            <span class="material-icons text-4xl">record_voice_over</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-midnight">Fonetik & Pengucapan</h2>
+                            <p class="text-bordeaux">Pelajari cara melafalkan bahasa Prancis dengan benar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <a v-for="lesson in fonetikLessons" :key="lesson.id"
+                           :href="lesson.url"
+                           class="block p-4 bg-ivory rounded-lg border-2 border-pearl hover:border-gold hover:shadow-lg transition-all duration-300 group">
+                            <h3 class="text-md font-bold text-midnight group-hover:text-gold">{{lesson.id}}. {{ lesson.title }}</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grammar Module (Coming Soon) -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 opacity-75 border-2 border-pearl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-midnight text-ivory rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+                            <span class="material-icons text-4xl">menu_book</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-midnight">Tata Bahasa (Grammaire)</h2>
+                            <p class="text-bordeaux">Kuasai struktur dan aturan bahasa Prancis</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-pearl/30 rounded-lg border-2 border-dashed border-pearl">
+                        <p class="text-bordeaux text-center font-semibold">🚧 Segera Hadir - Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Vocabulary Module (Coming Soon) -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 opacity-75 border-2 border-pearl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-midnight text-ivory rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+                            <span class="material-icons text-4xl">library_books</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-midnight">Kosakata (Vocabulaire)</h2>
+                            <p class="text-bordeaux">Perluas perbendaharaan kata bahasa Prancis Anda</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-pearl/30 rounded-lg border-2 border-dashed border-pearl">
+                        <p class="text-bordeaux text-center font-semibold">🚧 Segera Hadir - Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Conversation Module (Coming Soon) -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 opacity-75 border-2 border-pearl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-midnight text-ivory rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold">
+                            <span class="material-icons text-4xl">forum</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-midnight">Percakapan (Conversation)</h2>
+                            <p class="text-bordeaux">Praktik berbicara dalam situasi nyata</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-pearl/30 rounded-lg border-2 border-dashed border-pearl">
+                        <p class="text-bordeaux text-center font-semibold">🚧 Segera Hadir - Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-8 bg-white rounded-2xl shadow-xl p-6 border-2 border-pearl">
+                <div class="text-center text-bordeaux">
+                    <p class="font-semibold mb-2">✨ Bonne chance dans votre apprentissage ! ✨</p>
+                    <p class="text-sm">Semoga beruntung dalam pembelajaran Anda!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            data() {
+                return {
+                    fonetikLessons: [
+                        {
+                            id: 1,
+                            title: 'Pengenalan Dasar',
+                            url: 'fonetik/001-pengenalan-dasar-1.html',
+                        },
+                    ]
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

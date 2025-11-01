@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesi 1: Pengenalan Dasar - Alfabet Prancis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#F8F5F0',
+                        midnight: '#0B1D39',
+                        gold: '#C6A664',
+                        pearl: '#D1D1D1',
+                        bordeaux: '#4C1C24'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-ivory">
+    <!-- Floating Headshot Image -->
+    <img src="./anah.webp"
+            alt="Headshot"
+            class="hidden md:block absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 object-cover rounded-full border-2 border-gold shadow-lg z-10"
+            style="pointer-events: none;">
+    <div id="app" class="min-h-screen p-8">
+        <div class="max-w-6xl mx-auto bg-white rounded-2xl overflow-hidden relative border-2 border-pearl">
+
+            <!-- Slide Content -->
+            <div :class="fullscreen ? 'p-8 h-[500px] overflow-y-auto' : 'p-8 h-[500px] overflow-y-auto'">
+                <div v-if="currentSlide === 0">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Selamat Datang! 🇫🇷</h2>
+                    <div class="space-y-4 text-lg">
+                        <p class="text-bordeaux">Anda akan mempelajari:</p>
+                        <ul class="list-disc list-inside space-y-2 text-bordeaux ml-4">
+                            <li>Alfabet Prancis A-Z</li>
+                            <li>Nama dan pelafalan setiap huruf</li>
+                            <li>Huruf yang sering tidak dibaca</li>
+                            <li>Perbedaan vokal dan konsonan</li>
+                            <li>Prinsip dasar pengucapan</li>
+                        </ul>
+                        <div class="mt-8 p-4 bg-ivory border-l-4 border-gold rounded">
+                            <p class="text-midnight font-semibold">💡 Tips: Bahasa Prancis terlihat sulit, tapi ada pola yang bisa dipelajari!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="currentSlide === 1">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Alfabet Prancis (A-Z)</h2>
+                    <div class="grid grid-cols-6 gap-4">
+                        <div v-for="letter in alphabetAll" :key="letter.letter" 
+                             class="p-4 bg-ivory rounded-lg border border-pearl">
+                            <div class="text-3xl font-bold text-midnight mb-2">{{ letter.letter }}</div>
+                            <div class="text-sm text-bordeaux">Nama: <span class="font-semibold">{{ letter.name }}</span></div>
+                            <div class="text-sm text-bordeaux">Bunyi: <span class="font-mono bg-gold/20 px-2 py-1 rounded">{{ letter.sound }}</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="currentSlide === 2">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Huruf yang Sering TIDAK Dibaca</h2>
+                    <div class="space-y-6">
+                        <div class="bg-pearl/30 border-l-4 border-bordeaux p-4 rounded">
+                            <h3 class="font-bold text-bordeaux mb-2">🚫 Konsonan Akhir (Biasanya Diam)</h3>
+                            <p class="text-bordeaux mb-3">Huruf: D, P, S, T, X, Z di akhir kata sering tidak dibaca</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-midnight">grand</span>
+                                    <span class="text-pearl">→</span>
+                                    <span class="font-mono bg-gold/20 px-2 py-1 rounded">/grɑ̃/</span>
+                                    <span class="text-sm text-bordeaux">(d tidak dibaca)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-midnight">beaucoup</span>
+                                    <span class="text-pearl">→</span>
+                                    <span class="font-mono bg-gold/20 px-2 py-1 rounded">/boku/</span>
+                                    <span class="text-sm text-bordeaux">(p tidak dibaca)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-midnight">trois</span>
+                                    <span class="text-pearl">→</span>
+                                    <span class="font-mono bg-gold/20 px-2 py-1 rounded">/trwa/</span>
+                                    <span class="text-sm text-bordeaux">(s tidak dibaca)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-pearl/30 border-l-4 border-gold p-4 rounded">
+                            <h3 class="font-bold text-midnight mb-2">🔇 Huruf H (Selalu Diam)</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-midnight">homme</span>
+                                    <span class="text-pearl">→</span>
+                                    <span class="font-mono bg-gold/20 px-2 py-1 rounded">/ɔm/</span>
+                                    <span class="text-sm text-bordeaux">(seperti "om")</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="font-bold text-midnight">hôtel</span>
+                                    <span class="text-pearl">→</span>
+                                    <span class="font-mono bg-gold/20 px-2 py-1 rounded">/otɛl/</span>
+                                    <span class="text-sm text-bordeaux">(seperti "otel")</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="currentSlide === 3">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Contoh Praktis</h2>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div v-for="(ex, idx) in examples" :key="idx"
+                             class="p-4 bg-ivory rounded-lg border border-pearl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-2xl font-bold text-midnight">{{ ex.word }}</span>
+                                    <span class="ml-4 text-bordeaux">{{ ex.meaning }}</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-mono bg-gold/20 px-3 py-1 rounded">{{ ex.pronunciation }}</div>
+                                    <div class="text-sm text-bordeaux mt-1">{{ ex.note }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vokal Slide -->
+                <div v-if="currentSlide === 4">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Vokal (6 huruf)</h2>
+                    <div class="bg-ivory border-2 border-gold rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-midnight mb-4">🎵 VOKAL</h3>
+                        <div class="text-5xl font-bold text-gold mb-4">A E I O U Y</div>
+                        <p class="text-bordeaux">Bunyi keluar lancar tanpa halangan</p>
+                        <div class="mt-4 space-y-2">
+                            <div class="text-sm text-bordeaux"><span class="font-bold text-midnight">A</span> - ami, papa, salade, table, classe, carte, animal, patte</div>
+                            <div class="text-sm text-bordeaux"><span class="font-bold text-midnight">E</span> - le, fenêtre, cheval, petit, semaine, secret, genou, melon</div>
+                            <div class="text-sm text-bordeaux"><span class="font-bold text-midnight">I</span> - ici, merci, livre, midi, piscine, vite, image, fils</div>
+                            <div class="text-sm text-bordeaux"><span class="font-bold text-midnight">O</span> - hôtel, mot, rose, photo, pomme, chose, porte, école</div>
+                            <div class="text-sm text-bordeaux"><span class="font-bold text-midnight">U</span> - tu, salut, lune, musique, jus, rue, menu, plume</div>
+                            <div class="text-sm text-bordeaux"><span class="font-bold text-midnight">Y</span> - stylo, Lyon, lycée, pays, cycle, analyse, gymnase, mayonnaise</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Konsonan Slide -->
+                <div v-if="currentSlide === 5">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Konsonan (20 huruf)</h2>
+                    <div class="bg-ivory border-2 border-midnight rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-midnight mb-4">🎼 KONSONAN</h3>
+                        <div class="text-5xl font-bold text-midnight mb-4">B C D F G H J K L M<br>N P Q R S T V W X Z</div>
+                        <p class="text-bordeaux">Bunyi dibentuk dengan halangan (bibir, lidah, gigi)</p>
+                        <div class="mt-4 space-y-2 text-sm text-bordeaux">
+                            <div><span class="font-bold text-midnight">R</span> - uvular (tenggorokan)</div>
+                            <div><span class="font-bold text-midnight">J</span> - seperti "zh" dalam "vision"</div>
+                            <div><span class="font-bold text-midnight">C</span> - bisa /s/ atau /k/</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prinsip Dasar Pengucapan -->
+                <div v-if="currentSlide === 6">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Prinsip Dasar Pengucapan</h2>
+                    <div class="space-y-4">
+                        <div class="bg-ivory border-l-4 border-midnight p-5 rounded">
+                            <h4 class="font-bold text-midnight text-xl mb-2">Setiap Huruf Punya Pola</h4>
+                            <p class="text-bordeaux">Meski banyak pengecualian, ada aturan yang konsisten untuk dipelajari</p>
+                        </div>
+                        <div class="bg-ivory border-l-4 border-gold p-5 rounded">
+                            <h4 class="font-bold text-midnight text-xl mb-2">Huruf Akhir Sering Diam</h4>
+                            <p class="text-bordeaux">Terutama D, P, S, T, X, Z - kecuali dalam liaison</p>
+                        </div>
+                        <div class="bg-ivory border-l-4 border-midnight p-5 rounded">
+                            <h4 class="font-bold text-midnight text-xl mb-2">Kombinasi Huruf = Bunyi Baru</h4>
+                            <p class="text-bordeaux">ou, ai, eu, an, on, in → bunyi khusus yang berbeda</p>
+                        </div>
+                        <div class="bg-ivory border-l-4 border-gold p-5 rounded">
+                            <h4 class="font-bold text-midnight text-xl mb-2">Aksen Mengubah Bunyi</h4>
+                            <p class="text-bordeaux">é ≠ è ≠ ê - aksen sangat penting!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ringkasan & Tips -->
+                <div v-if="currentSlide === 7">
+                    <h2 class="text-3xl font-bold text-midnight mb-6">Ringkasan & Tips</h2>
+                    <div class="space-y-6">
+                        <div class="bg-ivory border-2 border-gold rounded-xl p-6">
+                            <h3 class="text-2xl font-bold text-midnight mb-4">✅ Yang Sudah Dipelajari:</h3>
+                            <ul class="space-y-2 text-bordeaux">
+                                <li>✓ Alfabet Prancis A-Z dengan nama dan bunyi</li>
+                                <li>✓ Huruf yang tidak dibaca (D, P, S, T, X, Z, H)</li>
+                                <li>✓ Perbedaan vokal (6) dan konsonan (20)</li>
+                                <li>✓ Prinsip dasar pengucapan</li>
+                                <li>✓ 10 contoh kata praktis</li>
+                            </ul>
+                        </div>
+                        <div class="bg-ivory border-2 border-midnight rounded-xl p-6">
+                            <h3 class="text-2xl font-bold text-midnight mb-4">🎯 Latihan Selanjutnya:</h3>
+                            <ul class="space-y-2 text-bordeaux">
+                                <li>→ Dengarkan alfabet Prancis di YouTube</li>
+                                <li>→ Latih melafalkan A-Z setiap hari</li>
+                                <li>→ Perhatikan huruf akhir yang diam</li>
+                                <li>→ Siap untuk mempelajari vokal dasar!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Progress Bar -->
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-pearl h-1">
+                    <div class="bg-gold h-1 transition-all duration-300 rounded-full"
+                        :style="{width: progress + '%'}"></div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="bg-ivory flex justify-center items-center">
+                <div class="text-bordeaux font-semibold text-[10px]">
+                    {{ currentSlide + 1 }}/{{ totalSlides }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            data() {
+                return {
+                    currentSlide: 0,
+                    totalSlides: 7, // reduced by 1 since two slides merged
+                    alphabetPart1: [
+                        { letter: 'A', name: 'a', sound: '/a/' },
+                        { letter: 'B', name: 'bé', sound: '/be/' },
+                        { letter: 'C', name: 'cé', sound: '/se/' },
+                        { letter: 'D', name: 'dé', sound: '/de/' },
+                        { letter: 'E', name: 'e', sound: '/ə/' },
+                        { letter: 'F', name: 'effe', sound: '/ɛf/' },
+                        { letter: 'G', name: 'gé', sound: '/ʒe/' },
+                        { letter: 'H', name: 'hache', sound: '/aʃ/' },
+                        { letter: 'I', name: 'i', sound: '/i/' },
+                        { letter: 'J', name: 'ji', sound: '/ʒi/' },
+                        { letter: 'K', name: 'ka', sound: '/ka/' },
+                        { letter: 'L', name: 'elle', sound: '/ɛl/' },
+                        { letter: 'M', name: 'emme', sound: '/ɛm/' }
+                    ],
+                    alphabetPart2: [
+                        { letter: 'N', name: 'enne', sound: '/ɛn/' },
+                        { letter: 'O', name: 'o', sound: '/o/' },
+                        { letter: 'P', name: 'pé', sound: '/pe/' },
+                        { letter: 'Q', name: 'ku', sound: '/ky/' },
+                        { letter: 'R', name: 'erre', sound: '/ɛʁ/' },
+                        { letter: 'S', name: 'esse', sound: '/ɛs/' },
+                        { letter: 'T', name: 'té', sound: '/te/' },
+                        { letter: 'U', name: 'u', sound: '/y/' },
+                        { letter: 'V', name: 'vé', sound: '/ve/' },
+                        { letter: 'W', name: 'double vé', sound: '/dublə ve/' },
+                        { letter: 'X', name: 'ixe', sound: '/iks/' },
+                        { letter: 'Y', name: 'i grec', sound: '/i gʁɛk/' },
+                        { letter: 'Z', name: 'zède', sound: '/zɛd/' }
+                    ],
+                    examples: [
+                        { word: 'Paris', meaning: 'Paris', pronunciation: '/paʁi/', note: 's tidak dibaca' },
+                        { word: 'chat', meaning: 'kucing', pronunciation: '/ʃa/', note: 't tidak dibaca' },
+                        { word: 'petit', meaning: 'kecil', pronunciation: '/pəti/', note: 't akhir diam' },
+                        { word: 'grand', meaning: 'besar', pronunciation: '/grɑ̃/', note: 'd tidak dibaca' },
+                        { word: 'vous', meaning: 'Anda', pronunciation: '/vu/', note: 's tidak dibaca' },
+                        { word: 'français', meaning: 'Prancis', pronunciation: '/frɑ̃sɛ/', note: 's akhir diam' },
+                        { word: 'homme', meaning: 'pria', pronunciation: '/ɔm/', note: 'h diam' },
+                        { word: 'froid', meaning: 'dingin', pronunciation: '/fʁwa/', note: 'd akhir diam' },
+                        { word: 'chaud', meaning: 'panas', pronunciation: '/ʃo/', note: 'd akhir diam' },
+                        { word: 'beaucoup', meaning: 'banyak', pronunciation: '/boku/', note: 'p akhir diam' },
+                        { word: 'trois', meaning: 'tiga', pronunciation: '/trwa/', note: 's akhir diam' },
+                        { word: 'femme', meaning: 'wanita', pronunciation: '/fam/', note: 'e akhir tidak dibaca' },
+                        { word: 'pomme', meaning: 'apel', pronunciation: '/pɔm/', note: 'e akhir tidak dibaca' },
+                        { word: 'vert', meaning: 'hijau', pronunciation: '/vɛʁ/', note: 't akhir diam' },
+                        { word: 'lait', meaning: 'susu', pronunciation: '/lɛ/', note: 't akhir diam' },
+                        { word: 'prix', meaning: 'harga', pronunciation: '/pʁi/', note: 'x akhir diam' },
+                        { word: 'riz', meaning: 'beras', pronunciation: '/ʁi/', note: 'z akhir diam' },
+                        { word: 'hôtel', meaning: 'hotel', pronunciation: '/otɛl/', note: 'h diam' },
+                        { word: 'heure', meaning: 'jam', pronunciation: '/œʁ/', note: 'h diam' },
+                        { word: 'hiver', meaning: 'musim dingin', pronunciation: '/ivɛʁ/', note: 'h diam' },
+                        { word: 'honnête', meaning: 'jujur', pronunciation: '/ɔnɛt/', note: 'h diam' },
+                    ],
+                    fullscreen: false
+                }
+            },
+            computed: {
+                alphabetAll() {
+                    return [...this.alphabetPart1, ...this.alphabetPart2];
+                },
+                progress() {
+                    return ((this.currentSlide + 1) / this.totalSlides) * 100;
+                }
+            },
+            methods: {
+                nextSlide() {
+                    if (this.currentSlide < this.totalSlides - 1) {
+                        this.currentSlide++;
+                    }
+                },
+                prevSlide() {
+                    if (this.currentSlide > 0) {
+                        this.currentSlide--;
+                    }
+                },
+                toggleFullscreen() {
+                    const elem = document.documentElement;
+                    if (!document.fullscreenElement) {
+                        elem.requestFullscreen();
+                        this.fullscreen = true;
+                    } else {
+                        document.exitFullscreen();
+                        this.fullscreen = false;
+                    }
+                }
+            },
+            mounted() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key.toLowerCase() === 'f') this.toggleFullscreen();
+                });
+                document.addEventListener('fullscreenchange', () => {
+                    this.fullscreen = !!document.fullscreenElement;
+                });
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
