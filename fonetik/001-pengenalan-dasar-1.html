@@ -6,7 +6,7 @@
     <title>Sesi 1: Pengenalan Dasar - Alfabet Prancis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -29,6 +29,13 @@
             alt="Headshot"
             class="hidden md:block absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 object-cover rounded-full border-2 border-gold shadow-lg z-10"
             style="pointer-events: none;">
+    <!-- Floating Tip Button -->
+    <a href="https://tiptap.gg/zulmianah" target="_blank" rel="noopener"
+       class="fixed bottom-6 right-6 z-50 bg-gold text-midnight rounded-full shadow-lg flex items-center gap-2 px-5 py-3 hover:bg-midnight hover:text-gold transition-colors group"
+       title="Dukung dengan tip!">
+        <span class="material-icons text-xs group-hover:animate-bounce">volunteer_activism</span>
+        <span class="font-semibold text-xs hidden sm:inline">Tip Saya</span>
+    </a>
     <div id="app" class="min-h-screen p-8">
         <div class="max-w-6xl mx-auto bg-white rounded-2xl overflow-hidden relative border-2 border-pearl">
 
@@ -229,7 +236,6 @@
             </div>
         </div>
     </div>
-
     <script>
         const { createApp } = Vue;
         

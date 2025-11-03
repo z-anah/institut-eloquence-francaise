@@ -24,11 +24,18 @@
     </script>
 </head>
 <body class="bg-ivory">
-    <!-- Floating Headshot Image -->
-    <img src="./fonetik/anah.webp"
+    <!-- Floating Headshot & Tip Button (Stacked) -->
+    <div class="hidden md:flex flex-col items-end fixed right-1 top-1/2 -translate-y-1/2 z-50 gap-3 pointer-events-none">
+        <img src="./fonetik/anah.webp"
             alt="Headshot"
-            class="hidden md:block absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 object-cover rounded-full border-2 border-gold shadow-lg z-10"
-            style="pointer-events: none;">
+            class="w-10 h-10 object-cover rounded-full border-2 border-gold shadow-lg pointer-events-none">
+        <a href="https://tiptap.gg/zulmianah" target="_blank" rel="noopener"
+           class="bg-gold text-midnight rounded-full shadow-lg flex items-center gap-2 px-5 py-3 hover:bg-midnight hover:text-gold transition-colors group pointer-events-auto"
+           title="Dukung dengan tip!">
+            <span class="material-icons text-2xl group-hover:animate-bounce">volunteer_activism</span>
+            <span class="font-semibold text-sm hidden sm:inline">Tip Saya</span>
+        </a>
+    </div>
     
     <div id="app" class="min-h-screen p-8">
         <div class="max-w-6xl mx-auto">
@@ -122,7 +129,6 @@
             </div>
         </div>
     </div>
-
     <script>
         const { createApp } = Vue;
         
