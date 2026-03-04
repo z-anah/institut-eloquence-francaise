@@ -76,5 +76,6 @@ window.APP_DATA = {
         { id:"Isa", en: "Jesus", fr: "Jésus", ar: "عيسى", img: "asdf" },
         { id:"Muhammad", en: "Muhammad", fr: "Mahomet", ar: "محمد", img: "asdf" },
       ],
+    },
   }
 };
