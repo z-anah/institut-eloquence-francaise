@@ -50,31 +50,31 @@ window.APP_DATA = {
       title: "Prophets",
       items: [
         // adam idris nuh hud saleh ibrahim lut ismail ishaq yaqub yusuf ayub shuayb musa harun zulkifli daud sulayman ilyas al-yasa yunus zakariya yahya isa muhammad
-        { id:"Adam", en: "Adam", fr: "Adam", ar: "آدم", img: "https://raw.githubusercontent.com/z-anah/institut-eloquence-francaise/refs/heads/main/img/prophets/1.png" },
-        { id:"Idris", en: "Idris", fr: "Idris", ar: "إدريس", img: "asdf" },
-        { id:"Nuh", en: "Noah", fr: "Noé", ar: "نوح", img: "asdf" },
-        { id:"Hud", en: "Hud", fr: "Hud", ar: "هود", img: "asdf" },
-        { id:"Saleh", en: "Salih", fr: "Salih", ar: "صالح", img: "asdf" },
-        { id:"Ibrahim", en: "Abraham", fr: "Abraham", ar: "إبراهيم", img: "asdf" },
-        { id:"Lut", en: "Lot", fr: "Loth", ar: "لوط", img: "asdf" },
-        { id:"Ismail", en: "Ishmael", fr: "Ismaël", ar: "إسماعيل", img: "asdf" },
-        { id:"Ishaq", en: "Isaac", fr: "Isaac", ar: "إسحاق", img: "asdf" },
-        { id:"Yaqub", en: "Jacob", fr: "Jacob", ar: "يعقوب", img: "asdf" },
-        { id:"Yusuf", en: "Joseph", fr: "Joseph", ar: "يوسف", img: "asdf" },
-        { id:"Ayub", en: "Job", fr: "Job", ar: "أيوب", img: "asdf" },
-        { id:"Shuayb", en: "Shuayb", fr: "Shuayb", ar: "شعيب", img: "asdf" },
-        { id:"Musa", en: "Moses", fr: "Moïse", ar: "موسى", img: "asdf" },
-        { id:"Harun", en: "Aaron", fr: "Aaron", ar: "هارون", img: "asdf" },
-        { id:"Zulkifli", en: "Dhul-Kifl", fr: "Dhul-Kifl", ar: "ذو الكفل", img: "asdf" },
-        { id:"Daud", en: "David", fr: "David", ar: "داود", img: "asdf" },
-        { id:"Sulayman", en: "Solomon", fr: "Salomon", ar: "سليمان", img: "asdf" },
-        { id:"Ilyas", en: "Elijah", fr: "Élie", ar: "إلياس", img: "asdf" },
-        { id:"Al-Yasa'", en: "Elisha", fr: "Élisée", ar: "اليسع", img: "asdf" },
-        { id:"Yunus", en: "Jonah", fr: "Jonas", ar: "يونس", img: "asdf" },
-        { id:"Zakariya", en: "Zechariah", fr: "Zacharie", ar: "زكريا", img: "asdf" },
-        { id:"Yahya", en: "John the Baptist", fr: "Jean-Baptiste", ar: "يحيى", img: "asdf" },
-        { id:"Isa", en: "Jesus", fr: "Jésus", ar: "عيسى", img: "asdf" },
-        { id:"Muhammad", en: "Muhammad", fr: "Mahomet", ar: "محمد", img: "asdf" },
+        { id:"Adam", en: "Adam", fr: "Adam", ar: "آدم", img: "https://i.pinimg.com/736x/e1/bb/ff/e1bbfffd87f0eb75778acaa1f83eac0f.jpg" }, // pinterest: apple tree
+        { id:"Idris", en: "Idris", fr: "Idris", ar: "إدريس", img: "https://i.pinimg.com/1200x/33/70/30/337030e19f6fcb94ac6c3980741f27c3.jpg" }, // pinterest: pen and writing
+        { id:"Nuh", en: "Noah", fr: "Noé", ar: "نوح", img: "https://i.pinimg.com/736x/7b/5d/a9/7b5da954099f013d66d1ea1a188f7250.jpg" }, // pinterest: ark
+        { id:"Hud", en: "Hud", fr: "Hud", ar: "هود", img: "https://i.pinimg.com/736x/68/a0/68/68a068dcef61e990584a7083628aa0eb.jpg" }, // pinterest: desert and camel
+        { id:"Saleh", en: "Salih", fr: "Salih", ar: "صالح", img: "https://i.pinimg.com/736x/f7/75/b5/f775b5063f2334522dd42e7d62b1ad52.jpg" }, // pinterest: she-camel
+        { id:"Ibrahim", en: "Abraham", fr: "Abraham", ar: "إبراهيم", img: "https://i.pinimg.com/736x/48/67/04/486704bc92bfae26b3aba2e27c449617.jpg" }, // pinterest: fire and sacrifice
+        { id:"Lut", en: "Lot", fr: "Loth", ar: "لوط", img: "https://i.pinimg.com/736x/ed/98/fa/ed98fa02b8ce9ca2ac104a672b9704d9.jpg" }, // pinterest: city and rain of stones
+        { id:"Ismail", en: "Ishmael", fr: "Ismaël", ar: "إسماعيل", img: "https://i.pinimg.com/originals/23/da/19/23da1935591364d6aa47277e7470ff6d.gif" }, // pinterest: well and zamzam water
+        { id:"Ishaq", en: "Isaac", fr: "Isaac", ar: "إسحاق", img: "https://i.pinimg.com/originals/a7/46/7f/a7467f96d48e4bb7f86bc486d17a4f40.gif" }, // pinterest: sheep and sacrifice
+        { id:"Yaqub", en: "Jacob", fr: "Jacob", ar: "يعقوب", img: "https://i.pinimg.com/736x/ea/f3/d9/eaf3d959fbb8629e400cfe036bec0e5a.jpg" }, // pinterest: ladder and dream
+        { id:"Yusuf", en: "Joseph", fr: "Joseph", ar: "يوسف", img: "https://i.pinimg.com/736x/5e/d2/80/5ed280526e9a128b818e01b2919a8146.jpg" }, // pinterest: coat of many colors and prison
+        { id:"Ayub", en: "Job", fr: "Job", ar: "أيوب", img: "https://i.pinimg.com/originals/33/41/e2/3341e21e0cd17250c74629aacefa6408.gif" }, // pinterest: patience and suffering
+        { id:"Shuayb", en: "Shuayb", fr: "Shuayb", ar: "شعيب", img: "https://i.pinimg.com/736x/48/5a/71/485a71f19cbe2e41fe88a12ebc61b3ae.jpg" }, // pinterest: market and fair trade
+        { id:"Musa", en: "Moses", fr: "Moïse", ar: "موسى", img: "https://i.pinimg.com/1200x/3f/04/d4/3f04d4e3797e29c6d90beb058ce2bdd8.jpg" }, // pinterest: staff and sea splitting
+        { id:"Harun", en: "Aaron", fr: "Aaron", ar: "هارون", img: "https://i.pinimg.com/1200x/3f/04/d4/3f04d4e3797e29c6d90beb058ce2bdd8.jpg" }, // pinterest: staff and sea splitting (with Musa)
+        { id:"Zulkifli", en: "Dhul-Kifl", fr: "Dhul-Kifl", ar: "ذو الكفل", img: "https://i.pinimg.com/1200x/62/b0/b1/62b0b10d7c550c10a37caa59cd645a7b.jpg" }, // pinterest: scales and justice
+        { id:"Daud", en: "David", fr: "David", ar: "داود", img: "https://i.pinimg.com/1200x/96/86/f2/9686f2bfe1ab53a3b1437abe3b23e600.jpg" }, // pinterest: harp and psalms
+        { id:"Sulayman", en: "Solomon", fr: "Salomon", ar: "سليمان", img: "https://i.pinimg.com/736x/9a/d7/2e/9ad72e40f242ab0b4ed6f61d403ecf57.jpg" }, // pinterest: throne and wisdom
+        { id:"Ilyas", en: "Elijah", fr: "Élie", ar: "إلياس", img: "https://i.pinimg.com/736x/f1/ae/c8/f1aec8fe96ff3a7046a3cb10f9e9a52a.jpg" }, // pinterest: fire and chariot of fire
+        { id:"Al-Yasa'", en: "Elisha", fr: "Élisée", ar: "اليسع", img: "https://i.pinimg.com/736x/be/e2/08/bee2087231b25386925cdc1d9ac576d8.jpg" }, // pinterest: water and healing
+        { id:"Yunus", en: "Jonah", fr: "Jonas", ar: "يونس", img: "https://i.pinimg.com/736x/74/9f/fa/749ffaacf1f6c8d1dca702984e940da5.jpg" }, // pinterest: whale and repentance
+        { id:"Zakariya", en: "Zechariah", fr: "Zacharie", ar: "زكريا", img: "https://i.pinimg.com/736x/fe/96/53/fe96539cdf280c2336ec4ffb6f4db752.jpg" }, // pinterest: prayer and angel Gabriel
+        { id:"Yahya", en: "John the Baptist", fr: "Jean-Baptiste", ar: "يحيى", img: "https://i.pinimg.com/1200x/60/2d/e3/602de36304c1518cea26d16171ecd4b8.jpg" }, // pinterest: baptism and wilderness
+        { id:"Isa", en: "Jesus", fr: "Jésus", ar: "عيسى", img: "https://i.pinimg.com/736x/18/5a/c1/185ac1b37ab81180051deb6b56b2b565.jpg" }, // pinterest: cross and resurrection
+        { id:"Muhammad", en: "Muhammad", fr: "Mahomet", ar: "محمد", img: "https://i.pinimg.com/736x/90/96/8b/90968bcacd7863d819a082555beabed6.jpg" }, // pinterest: Quran and mosque
       ],
     },
   }
