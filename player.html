@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="data.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ThumbTap Learning</title>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="flex-1"></div>
+
+    <div id="app" class="p-4 space-y-3">
+        <div class="flex justify-center mb-4">
+            <button v-for="lang in languages" :key="lang.code" @click="setLanguage(lang.code)"
+                :class="['px-4 py-2 rounded-lg mx-1 font-semibold', lang.code === language ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300']">
+                {{ lang.label }}
+            </button>
+        </div>
+        <div class="w-full max-w-screen-sm aspect-square rounded-2xl flex items-end justify-center text-3xl font-semibold pb-4 active:scale-95 transition mx-auto"
+            :style="cardStyle" @click="tap">
+        </div>
+        <div class="bg-gray-800 h-40 rounded-2xl flex items-center justify-center text-3xl font-semibold active:scale-95 transition"
+            @click="tap">
+            {{ item[language] }}
+        </div>
+    </div>
+
+    <script>
+        const lessonId = new URLSearchParams(location.search).get("lesson");
+
+        Vue.createApp({
+            data() {
+                return {
+                    items: window.APP_DATA.lessons[lessonId].items,
+                    i: 0,
+                    played: false,
+                    language: localStorage.getItem('thumbtap_language') || 'fr',
+                    languages: [
+                        { code: 'fr', label: 'Français', tts: 'fr-FR' },
+                        { code: 'ar', label: 'العربية', tts: 'ar-SA' }
+                    ]
+                };
+            },
+            computed: {
+                item() {
+                    return this.items[this.i];
+                },
+                cardStyle() {
+                    return {
+                        backgroundImage: `url(${this.item.img})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat"
+                    };
+                }
+            },
+            methods: {
+                speak(text) {
+                    const langObj = this.languages.find(l => l.code === this.language);
+                    const u = new SpeechSynthesisUtterance(text);
+                    u.lang = langObj ? langObj.tts : 'fr-FR';
+                    speechSynthesis.cancel();
+                    speechSynthesis.speak(u);
+                },
+                setLanguage(code) {
+                    this.language = code;
+                    localStorage.setItem('thumbtap_language', code);
+                },
+                tap() {
+                    if (!this.played) {
+                        this.speak(this.item[this.language]);
+                        this.played = true;
+                    } else {
+                        this.i++;
+                        this.played = false;
+                        if (this.i >= this.items.length) {
+                            location.href = `exercises.html?lesson=${lessonId}`;
+                        } else {
+                            this.speak(this.item[this.language]);
+                            this.played = true;
+                        }
+                    }
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

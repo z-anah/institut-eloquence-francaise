@@ -14,23 +14,26 @@
 
   <div id="app" class="p-4 space-y-3">
     <div
-      v-for="(lesson, id) in lessons"
-      :key="id"
       class="bg-gray-800 py-5 rounded-xl text-center text-lg font-semibold active:scale-95 transition"
-      @click="go(id)"
+      @click="start"
     >
-      {{ lesson.title }}
+      Tap to Hear
     </div>
+    <!-- return to index same style -->
+    <a href="index.html"
+      class="bg-gray-800 py-5 rounded-xl text-center text-lg font-semibold active:scale-95 transition block"
+    >
+      Back
+    </a>
   </div>
 
   <script>
+    const lesson = new URLSearchParams(location.search).get("lesson");
+
     Vue.createApp({
-      data() {
-        return { lessons: window.APP_DATA.lessons };
-      },
       methods: {
-        go(id) {
-          location.href = `exercises.html?lesson=${id}`;
+        start() {
+          location.href = `player.html?lesson=${lesson}`;
         }
       }
     }).mount("#app");
